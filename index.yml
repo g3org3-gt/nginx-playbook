@@ -1,0 +1,9 @@
+---
+- hosts: web
+  remote_user: root
+  tasks:
+    - name: Install Packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - nginx
+        - python-pip
